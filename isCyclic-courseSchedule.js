@@ -6,7 +6,7 @@
  * we need to detect nodes visited more than once in the current traversal
  *
  * flags:
- * 0 = unvisited
+ * 0/undefined = unvisited
  * 1 = visited (past)
  * -1 = visiting (current)
  * 
