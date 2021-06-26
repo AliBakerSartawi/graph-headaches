@@ -20,10 +20,10 @@
  */
 
 // the idea is start at the (leaves) of the graph -> a node with one neighbor
-// and we make our way to the center
+// and we make our way to the center (the new leaf) -> peeling the graph like an 
 
 const n = 4;
-const directedEdges = [
+const undirectedEdges = [
   [0, 1],
   [1, 2],
   [1, 3],
@@ -44,7 +44,7 @@ function addEdge(origin, destination) {
 for (let i = 0; i < n; i++) {
   addNode(i);
 }
-directedEdges.forEach((edge) => addEdge(...edge));
+undirectedEdges.forEach((edge) => addEdge(...edge));
 
 console.log(adjacencyList);
 
@@ -75,17 +75,47 @@ function dfs(node, visited, group) {
 
 // Main Function
 function minimumHeightTree(adjacencyList) {
-  // const visited = new Array();
+  let leaves = new Array();
+  // adding nodes with one neighbor to the leaves array
+  // n is the number of nodes
+  for (let i = 0; i < n; i++) {
+    if (adjacencyList.get(i).length === 1) {
+      leaves.push(i)
+    }
+  }
 
-  // for (let i = 0; i < adjacencyList.size; i++) {
-  //   if (visited[i] === undefined && !dfs(i, visited, 1)) {
-  //     // non-bipartite
-  //     return false;
-  //   }    
-  // }
+  // keep removing leaves until there is at most two nodes left
+  let x = n;
+  while (x > 2) {
+    x -= leaves.length
+    console.log(x)
 
-  // // bipartite
-  // return true;
+    // temp array for new leaves
+    let newLeaves = new Array();
+
+    // removing each of the current leaves
+    for (let i of leaves) {
+      // get this leaf's one and only neighbor
+      let [j] = adjacencyList.get(i)
+      console.log(i, j)
+
+      // go to the leaf's neighbor and remove this leaf from its list
+      let z = adjacencyList.get(j).findIndex(e => e === i)
+      z = adjacencyList.get(j).splice(z, 1)
+      console.log(z)
+      console.log(adjacencyList.get(j))
+
+      // if that neighbor only has one neighbor left (indegree = 1), then it's a leaf now
+      if (adjacencyList.get(j).length === 1) {
+        newLeaves.push(j)
+      }
+    }
+
+    // once the current leaves are removed, make the newLeaves the 'current' leaves
+    leaves = newLeaves
+  }
+
+  return leaves;
 }
 
 console.log(minimumHeightTree(adjacencyList))
