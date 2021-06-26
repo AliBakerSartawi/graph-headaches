@@ -121,3 +121,12 @@ function dfs(start, target, visited = new Set()) {
 }
 
 dfs('PHX', 'BKK')
+
+// ---------------------------------------
+
+/**
+ * Time complexity
+ */
+
+// is expressed as O(v+e) ---> vertex + edge
+// in other words ---> O(n) ---> scales linearly
