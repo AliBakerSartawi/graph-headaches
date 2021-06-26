@@ -85,7 +85,7 @@ function bfs(start, target) {
 }
 
 // this will take more steps to find the target node
-// ... but is efficient in finding all the possible 
+// ... but is efficient in finding all the possible ones
 bfs('PHX', 'BKK')
 
 // ---------------------------------------

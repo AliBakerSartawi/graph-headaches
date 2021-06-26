@@ -1,5 +1,7 @@
 # graph-headaches
 
+## classless solutions
+
 - [connectedComponents](./connectedComponents.js)
 
   ```js
@@ -41,7 +43,7 @@
    */
   ```
 
-- [possiblePartition](./possibleBipartition.js)
+- [possibleBipartition](./possibleBipartition.js)
 
   ```js
   // isBipartite (possiblePartition) determines of the graph can be split into two groups
@@ -62,4 +64,36 @@
    *            \     /
    *              3(A)
    */
+  ```
+
+- [minimumHeightTree](./minimumHeightTree.js)
+
+  ```js
+  // minimumHeightTree
+  // graph is guaranteed to have no cycles
+  // the problem is: if you were to turn the graph into a tree
+  // ... which node should be the root to yield the tree
+  // ... with the minimum height (not necessarily a binary tree)
+
+  /**
+   *
+   * examples:
+   *     1          0      3     2
+   *   / | \        |      |     |
+   *  0  2  3       1      1     1
+   *               / \    / \   / \
+   *              2  3   2  0  3  0
+   *
+   * choosing (1) as the root would result in the shortest tree
+   *
+   */
+
+  // the idea is start at the (leaves) of the graph -> a node with one neighbor
+  // and we make our way to the center (the new leaf) -> peeling the graph like an
+  ```
+
+- [airports-bfs-dfs](./airports-bfs-dfs.js)
+
+  ```js
+  // real life case for bfs & dfs exercise
   ```
