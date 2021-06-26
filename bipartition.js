@@ -25,7 +25,8 @@ const directedEdges = [
   [1, 2],
   [1, 3],
   [3, 4],
-  [2, 4]
+  [2, 4],
+  // [1, 4] // this edge will make it false
 ];
 
 const adjacencyList = new Map();
