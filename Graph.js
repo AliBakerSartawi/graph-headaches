@@ -67,7 +67,7 @@ class Graph {
   }
 }
 
-// const g = new Graph();
+const g = new Graph();
 
 // const zero = new Vertex(0);
 // const one = new Vertex(1);
