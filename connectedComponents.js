@@ -75,8 +75,3 @@ function connectedComponents(adjacencyList) {
 }
 
 console.log(connectedComponents(adjacencyList))
-
-let keys = adjacencyList.keys()
-for (let key of keys) {
-  console.log(key)
-}
