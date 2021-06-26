@@ -100,7 +100,7 @@ function minimumHeightTree(adjacencyList) {
       console.log(i, j)
 
       // go to the leaf's neighbor and remove this leaf from its list
-      let z = adjacencyList.get(j).findIndex(e => e === i)
+       let z = adjacencyList.get(j).findIndex(e => e === i)
       z = adjacencyList.get(j).splice(z, 1)
       console.log(z)
       console.log(adjacencyList.get(j))
