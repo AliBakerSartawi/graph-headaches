@@ -1,6 +1,6 @@
 'use strict';
 
-// courseSchedule algorithm detects cycles in graphs
+// isCyclic (courseSchedule) algorithm detects cycles in graphs
 
 /**
  * we need to detect nodes visited more than once in the current traversal
@@ -9,6 +9,10 @@
  * 0 = unvisited
  * 1 = visited (past)
  * -1 = visiting (current)
+ * 
+ * below example should yield a cyclic graph:
+ * 0 -> 1 -> 2 -> 4 -> 3 -> (2) this is where the cycle happens
+ * 
  */
 
 const n = 5;
@@ -53,11 +57,24 @@ function dfs(node, visited) {
 
   // marking currently visited as -1
   visited[node] = -1;
+
+  const neighbors = adjacencyList.get(node)
+
+  console.log(neighbors) // 1, 2, 4, 3, (2)
+
+  for (const neighbor of neighbors) {
+    if (dfs(neighbor, visited)) {
+      return true;
+    }
+  }
+
+  visited[node] = 1;
+  return false;
 }
 
 // Main Function
 function isCyclic(adjacencyList) {
-  const visited = new Array(adjacencyList.size);
+  const visited = new Array();
 
   for (let i = 0; i < adjacencyList.size; i++) {
     if (dfs(i, visited)) {
