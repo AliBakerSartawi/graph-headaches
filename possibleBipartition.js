@@ -20,7 +20,7 @@
  */
 
 const n = 5;
-const directedEdges = [
+const undirectedEdges = [
   [0, 1],
   [1, 2],
   [1, 3],
@@ -44,7 +44,7 @@ function addEdge(origin, destination) {
 for (let i = 0; i < n; i++) {
   addNode(i);
 }
-directedEdges.forEach((edge) => addEdge(...edge));
+undirectedEdges.forEach((edge) => addEdge(...edge));
 
 console.log(adjacencyList);
 

@@ -8,18 +8,19 @@
 
 /**
  * 
- * flags:
- * 0/undefined = unvisited
- * 1 = group A
- * -1 = group B
+ * two examples:
+ *     1          0      3     2  
+ *   / | \        |      |     |  
+ *  0  2  3       1      1     1  
+ *               / \    / \   / \ 
+ *              2  3   2  0  3  0 
  * 
- * below example should yield true:
- *              2(A)
- *            /     \
- * 0(A) -> 1(B)     4(B)
- *            \     /
- *              3(A)
+ * choosing (1) as the root would result in the shortest tree
+ *              
  */
+
+// the idea is start at the (leaves) of the graph -> a node with one neighbor
+// and we make our way to the center
 
 const n = 4;
 const directedEdges = [
