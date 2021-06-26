@@ -18,7 +18,7 @@
  * each one of those is a connected component
  */
 
-const n = 5;
+const n = 7;
 const undirectedEdges = [
   [0, 1],
   [1, 2],
@@ -74,9 +74,9 @@ function connectedComponents(adjacencyList) {
   return counter
 }
 
+console.log(connectedComponents(adjacencyList))
+
 let keys = adjacencyList.keys()
 for (let key of keys) {
   console.log(key)
 }
-
-console.log(connectedComponents(adjacencyList))
